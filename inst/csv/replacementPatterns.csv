@@ -140,7 +140,7 @@ postgresql,CAST(@a AS varchar) +,CAST(@a AS varchar) ||
 postgresql,+ CAST(@a AS varchar),|| CAST(@a AS varchar)
 postgresql,"DATEFROMPARTS(@year,@month,@day)","TO_DATE(TO_CHAR(@year,'0000')||'-'||TO_CHAR(@month,'00')||'-'||TO_CHAR(@day,'00'), 'YYYY-MM-DD')"
 postgresql,"DATETIMEFROMPARTS(@year,@month,@day,@hour,@minute,@second,@ms)","TO_DATE(TO_CHAR(@year,'0000')||'-'||TO_CHAR(@month,'00')||'-'||TO_CHAR(@day,'00')||' '||TO_CHAR(@hour,'00')||':'||TO_CHAR(@minute,'00')||':'||TO_CHAR(@second,'00'), 'YYYY-MM-DD HH24:MI:SS')"
-postgresql,YEAR(@date),EXTRACT(YEAR FROM @date)
+postgresql,YEAR(@date),EXTRACT(YEAR FROM to_date(@date, 'YYYYMMDD'))
 postgresql,MONTH(@date),EXTRACT(MONTH FROM @date)
 postgresql,DAY(@date),EXTRACT(DAY FROM @date)
 postgresql,EOMONTH(@date),"(DATE_TRUNC('MONTH', @date) + INTERVAL '1 MONTH - 1 day')::DATE"
